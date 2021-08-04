@@ -15,6 +15,8 @@
 const grpc = {};
 grpc.web = require('grpc-web');
 
+
+var google_protobuf_empty_pb = require('google-protobuf/google/protobuf/empty_pb.js')
 const proto = require('./note_pb.js');
 
 /**
@@ -72,16 +74,16 @@ proto.NoteServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.Void,
+ *   !proto.google.protobuf.Empty,
  *   !proto.NoteListResponse>}
  */
 const methodDescriptor_NoteService_List = new grpc.web.MethodDescriptor(
   '/NoteService/List',
   grpc.web.MethodType.UNARY,
-  proto.Void,
+  google_protobuf_empty_pb.Empty,
   proto.NoteListResponse,
   /**
-   * @param {!proto.Void} request
+   * @param {!proto.google.protobuf.Empty} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -94,13 +96,13 @@ const methodDescriptor_NoteService_List = new grpc.web.MethodDescriptor(
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.Void,
+ *   !proto.google.protobuf.Empty,
  *   !proto.NoteListResponse>}
  */
 const methodInfo_NoteService_List = new grpc.web.AbstractClientBase.MethodInfo(
   proto.NoteListResponse,
   /**
-   * @param {!proto.Void} request
+   * @param {!proto.google.protobuf.Empty} request
    * @return {!Uint8Array}
    */
   function(request) {
@@ -111,7 +113,7 @@ const methodInfo_NoteService_List = new grpc.web.AbstractClientBase.MethodInfo(
 
 
 /**
- * @param {!proto.Void} request The
+ * @param {!proto.google.protobuf.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
@@ -132,7 +134,7 @@ proto.NoteServiceClient.prototype.list =
 
 
 /**
- * @param {!proto.Void} request The
+ * @param {!proto.google.protobuf.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata

@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 // Entities
+import "google/protobuf/empty.proto";
 message Void {}
 
 message Note {
@@ -19,6 +20,7 @@ message NoteListResponse { repeated Note notes = 1; }
 
 // Services
 service NoteService {
-  rpc List(Void) returns (NoteListResponse);
+  // rpc List(Void) returns (NoteListResponse);
+  rpc List(google.protobuf.Empty) returns (NoteListResponse);
   rpc Find(NoteFindRequest) returns (NoteFindResponse);
 }
