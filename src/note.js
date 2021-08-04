@@ -3,10 +3,10 @@
 const crypto = require("crypto");
 const path = require("path");
 
-const noteDefinitions = require(path.resolve(__dirname, "proto/note_pb"));
+const noteDefinitions = require(path.resolve(__dirname, "pb/note_pb"));
 
 const note = new noteDefinitions.Note();
-note.setId(crypto.randomBytes(16).toString("hex"));
+note.setId(crypto.randomInt(1, 3));
 note.setTitle("Title");
 note.setDescription("Description");
 
@@ -21,7 +21,7 @@ const receivedNote = noteDefinitions.Note.deserializeBinary(serializedNote);
 console.log(`[DEBUG]  receivedNote`, receivedNote);
 console.log(`----------`);
 
-const noteList = new noteDefinitions.NoteList();
+const noteList = new noteDefinitions.NoteListResponse();
 noteList.addNotes(note);
 console.log(`[DEBUG]  noteList`, noteList);
 console.log(`----------`);
@@ -30,7 +30,7 @@ const serializedNoteList = noteList.serializeBinary();
 console.log(`[DEBUG]  serializedNoteList`, serializedNoteList);
 console.log(`----------`);
 
-const receivedList = noteDefinitions.NoteList.deserializeBinary(serializedNoteList);
+const receivedList = noteDefinitions.NoteListResponse.deserializeBinary(serializedNoteList);
 console.log(`[DEBUG]  receivedList`, receivedList);
 console.log(`----------`);
 

@@ -6,7 +6,8 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.3.6",
     "@grpc/proto-loader": "^0.6.4",
-    "google-protobuf": "^3.17.3"
+    "google-protobuf": "^3.17.3",
+    "grpc-web": "^1.2.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.29.0",
@@ -17,6 +18,8 @@
     "note": "node src/note.js",
     "start:server": "node src/server.js",
     "start:client": "node src/client.js",
-    "compile": "protoc src/proto/*.proto --js_out=import_style=commonjs,binary:."
+    "compile": "protoc --proto_path=src/protofile src/protofile/*.proto --js_out=import_style=commonjs,binary:src/pb --grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/pb",
+    "compile:proto": "protoc src/protofile/*.proto --js_out=import_style=commonjs,binary:.",
+    "compile:grpc": "protoc src/protofile/*.proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:."
   }
 }
