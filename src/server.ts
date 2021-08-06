@@ -50,8 +50,8 @@ const bindPromise = promisify(server.bindAsync).bind(server);
 bindPromise("0.0.0.0:50051", ServerCredentials.createInsecure())
   .then((port) => {
     server.start();
-    console.log(`\033[0;31mServer started\033[0m, listening on \033[0;32m${port}\033[0m`);
+    console.log("\x1b[0;31mServer started\x1b[0m, listening on \x1b[0;32m" + port + "\x1b[0m");
   })
   .catch((error) => {
-    console.error(`\033[0;31mServer error\033[0m: ${error.message}`);
+    console.error("\x1b[0;31mServer error\x1b[0m: " + error.message);
   });

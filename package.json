@@ -24,11 +24,11 @@
   },
   "scripts": {
     "build": "npx tsc",
-    "bundle": "webpack -o ./web/dist/ ./web/client-web.js",
+    "bundle": "npx webpack -o ./web/dist/ ./web/client-web.js",
     "note": "node dist/note.js",
     "start:server": "node dist/server.js",
     "start:client": "node dist/client.js",
-    "compile": "npx grpc_tools_node_protoc --proto_path=src/protofile src/protofile/*.proto --js_out=import_style=commonjs,binary:src/pb --grpc_out=grpc_js:src/pb --ts_out=grpc_js:src/pb",
+    "compile": "npx grpc_tools_node_protoc --proto_path=src/protofile src/protofile/*.proto --js_out=import_style=commonjs,binary:src/pb --grpc_out=grpc_js:src/pb --ts_out=grpc_js:src/pb --grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/pb",
     "compile:proto-grpc_web": "protoc --proto_path=src/protofile src/protofile/*.proto --js_out=import_style=commonjs,binary:src/pb --grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/pb",
     "compile:proto": "protoc src/protofile/*.proto --js_out=import_style=commonjs,binary:.",
     "compile:grpc_web": "protoc src/protofile/*.proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:."
